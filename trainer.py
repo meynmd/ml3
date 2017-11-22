@@ -54,8 +54,8 @@ def train(trainfile, devfile, dictionary, gram=2):
         for x, y in xys:
             choices = [len(dictionary[w]) for w in x]
             c += 1
-            z = liangs_decode(x, dictionary, model, gram)
-            # z = decode_tri( x, dictionary, model, gram )
+            #z = liangs_decode(x, dictionary, model, gram)
+            z = decode_tri( x, dictionary, model, gram )
             if z != y:
                 updates += 1
                 active_features += update(model, model_avg, x, z, y, c, gram)

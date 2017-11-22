@@ -1,7 +1,6 @@
 import random
 from copy import deepcopy
 from collections import defaultdict
-import matplotlib.pyplot as plt
 from tagger import *
 
 num_epochs = 15
@@ -113,10 +112,13 @@ if __name__ == "__main__":
     # avg_tr_err, avg_dev_err = train_and_report(trainfile, devfile, dictionary, True, gram=2)
     # avg_tr_err, avg_dev_err = [0 for i in range(len(tr_err))], [0 for i in range(len(tr_err))]
     epochs = len(tr_err)
-    plt.plot( range( epochs ), tr_err )
-    plt.plot( range( epochs ), dev_err )
-    plt.plot( range( epochs ), avg_tr_err )
-    plt.plot( range( epochs ), avg_err )
-    plt.legend( ('Perc. Training', 'Perc. Dev', 'Avg. Training', 'Avg. Dev'), numpoints = 1)
+
     if plot:
+        import matplotlib.pyplot as plt
+        plt.plot( range( epochs ), tr_err )
+        plt.plot( range( epochs ), dev_err )
+        plt.plot( range( epochs ), avg_tr_err )
+        plt.plot( range( epochs ), avg_err )
+        plt.legend( ('Perc. Training', 'Perc. Dev', 'Avg. Training', 'Avg. Dev'), numpoints = 1)
         plt.show()
+
